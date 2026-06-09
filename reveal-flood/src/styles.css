@@ -4,19 +4,33 @@
   --line: #d9dee5;
   --paper: #fbfaf7;
   --soft: #eef3f5;
+  --card: rgba(255, 255, 255, 0.74);
+  --solid-card: #fff;
   --blue: #1f4e79;
   --green: #2f684f;
   --gold: #a87822;
   --red: #8c3f37;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --radius: 8px;
+  --shadow: 0 8px 24px rgba(22, 31, 42, 0.06);
+  --title-weight: 650;
+  --overlay-light: linear-gradient(90deg, rgba(251, 250, 247, 0.95) 0%, rgba(251, 250, 247, 0.78) 42%, rgba(251, 250, 247, 0.1) 78%);
+  --overlay-dark: linear-gradient(90deg, rgba(15, 20, 27, 0.86) 0%, rgba(15, 20, 27, 0.68) 45%, rgba(15, 20, 27, 0.08) 80%);
+  --dark-title: #fff;
+  --dark-muted: #eef3f5;
+  --dark-accent: #f2c46d;
 }
 
-body {
+html,
+body,
+.reveal-viewport {
   background: var(--paper);
 }
 
 .reveal {
   color: var(--ink);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--sans);
 }
 
 .reveal .slides {
@@ -27,8 +41,8 @@ body {
 .reveal h2,
 .reveal h3 {
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 650;
+  font-family: var(--serif);
+  font-weight: var(--title-weight);
   letter-spacing: 0;
   line-height: 1.05;
   text-transform: none;
@@ -68,7 +82,7 @@ body {
 .eyebrow,
 .section-kicker {
   color: var(--gold);
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--sans);
   font-size: 0.9rem;
   font-weight: 750;
   letter-spacing: 0.12em;
@@ -94,27 +108,27 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(251, 250, 247, 0.95) 0%, rgba(251, 250, 247, 0.78) 42%, rgba(251, 250, 247, 0.1) 78%);
+  background: var(--overlay-light);
 }
 
 .image-dark::before {
-  background: linear-gradient(90deg, rgba(15, 20, 27, 0.86) 0%, rgba(15, 20, 27, 0.68) 45%, rgba(15, 20, 27, 0.08) 80%);
+  background: var(--overlay-dark);
 }
 
 .image-dark h1,
 .image-dark h2,
 .image-dark h3,
 .image-dark p {
-  color: #fff;
+  color: var(--dark-title);
 }
 
 .image-dark .eyebrow,
 .image-dark .section-kicker {
-  color: #f2c46d;
+  color: var(--dark-accent);
 }
 
 .image-dark .subtitle {
-  color: #eef3f5;
+  color: var(--dark-muted);
 }
 
 .image-title > * {
@@ -147,10 +161,10 @@ body {
 .view-grid > div,
 .source-rows p,
 .definition {
-  background: rgba(255, 255, 255, 0.74);
+  background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(22, 31, 42, 0.06);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   padding: 1.1rem 1.2rem;
 }
 
@@ -187,7 +201,7 @@ body {
 
 .numbered li::before {
   background: var(--blue);
-  border-radius: 999px;
+  border-radius: var(--radius);
   color: #fff;
   content: counter(covenant);
   counter-increment: covenant;
@@ -246,14 +260,14 @@ body {
 
 .timeline div {
   border-top: 4px solid var(--blue);
-  background: #fff;
-  border-radius: 8px;
+  background: var(--solid-card);
+  border-radius: var(--radius);
   padding: 1rem;
 }
 
 .timeline strong {
   display: block;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-size: 1.3rem;
   margin-bottom: 0.4rem;
 }
@@ -268,7 +282,7 @@ body {
 blockquote {
   border-left: 5px solid var(--gold);
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-size: 2.1rem !important;
   line-height: 1.28 !important;
   margin: 1.6rem 0;
@@ -283,10 +297,10 @@ blockquote {
 }
 
 .quote-stack blockquote {
-  background: #fff;
+  background: var(--solid-card);
   border-left-color: var(--red);
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(22, 31, 42, 0.06);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   font-size: 1.45rem !important;
   margin: 0;
   padding: 1rem 1.1rem;
@@ -301,7 +315,7 @@ blockquote {
 
 .definition strong {
   color: var(--blue);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-size: 2rem;
 }
 
@@ -321,17 +335,17 @@ blockquote {
 }
 
 .scripture-block {
-  background: #fff;
+  background: var(--solid-card);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(22, 31, 42, 0.07);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   max-height: 610px;
   overflow: hidden;
   padding: 1.35rem 1.5rem;
 }
 
 .scripture-block p {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--serif);
   font-size: 1.34rem;
   line-height: 1.36;
   margin: 0 0 0.95rem;
@@ -343,7 +357,7 @@ blockquote {
 
 .scripture-block sup {
   color: var(--gold);
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--sans);
   font-size: 0.68rem;
   font-weight: 800;
   margin-right: 0.18rem;
@@ -363,6 +377,279 @@ blockquote {
 
 .two-column-text p {
   break-inside: avoid;
+}
+
+.theme-switcher {
+  align-items: center;
+  background: rgba(18, 24, 31, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  bottom: 1rem;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+  display: flex;
+  gap: 0.25rem;
+  left: 1rem;
+  padding: 0.25rem;
+  position: fixed;
+  z-index: 40;
+}
+
+.theme-switcher button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.82);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0;
+  line-height: 1;
+  padding: 0.58rem 0.72rem;
+}
+
+.theme-switcher button:hover,
+.theme-switcher button:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  outline: none;
+}
+
+.theme-switcher button.active {
+  background: #fff;
+  color: #18212b;
+}
+
+html[data-theme="atlas"] {
+  --ink: #1d2b23;
+  --muted: #5a685f;
+  --line: #c9d0c0;
+  --paper: #f4f0e6;
+  --soft: #e6eddc;
+  --card: rgba(255, 252, 241, 0.82);
+  --solid-card: #fffaf0;
+  --blue: #355f66;
+  --green: #526f3d;
+  --gold: #b07132;
+  --red: #8b4a3e;
+  --radius: 4px;
+  --shadow: 0 10px 24px rgba(53, 67, 46, 0.11);
+  --overlay-light: linear-gradient(90deg, rgba(244, 240, 230, 0.94) 0%, rgba(244, 240, 230, 0.68) 48%, rgba(244, 240, 230, 0.08) 82%);
+  --overlay-dark: linear-gradient(90deg, rgba(23, 34, 31, 0.9) 0%, rgba(23, 34, 31, 0.68) 48%, rgba(23, 34, 31, 0.08) 82%);
+}
+
+html[data-theme="atlas"] .reveal section {
+  background-image:
+    linear-gradient(rgba(53, 95, 102, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(53, 95, 102, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+html[data-theme="atlas"] .timeline {
+  gap: 0;
+}
+
+html[data-theme="atlas"] .timeline div {
+  border-left: 1px solid var(--line);
+  border-radius: 0;
+  border-top: 5px solid var(--green);
+}
+
+html[data-theme="atlas"] .timeline div:first-child {
+  border-bottom-left-radius: var(--radius);
+  border-top-left-radius: var(--radius);
+}
+
+html[data-theme="atlas"] .timeline div:last-child {
+  border-bottom-right-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+
+html[data-theme="atlas"] .eyebrow,
+html[data-theme="atlas"] .section-kicker {
+  border-bottom: 1px solid var(--line);
+  display: inline-block;
+  padding-bottom: 0.35rem;
+}
+
+html[data-theme="chapel"] {
+  --ink: #f7f3ea;
+  --muted: #d6cbb8;
+  --line: rgba(232, 198, 111, 0.28);
+  --paper: #171717;
+  --soft: #22201d;
+  --card: rgba(34, 31, 29, 0.78);
+  --solid-card: #221f1d;
+  --blue: #9cb7c2;
+  --green: #90aa86;
+  --gold: #e7c46f;
+  --red: #c17262;
+  --radius: 2px;
+  --shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+  --title-weight: 600;
+  --overlay-light: linear-gradient(90deg, rgba(18, 16, 15, 0.9) 0%, rgba(18, 16, 15, 0.68) 48%, rgba(18, 16, 15, 0.16) 82%);
+  --overlay-dark: linear-gradient(90deg, rgba(8, 8, 8, 0.92) 0%, rgba(8, 8, 8, 0.72) 48%, rgba(8, 8, 8, 0.16) 82%);
+  --dark-title: #fff8e9;
+  --dark-muted: #eadfcb;
+  --dark-accent: #e7c46f;
+}
+
+html[data-theme="chapel"] .reveal .slides {
+  text-align: center;
+}
+
+html[data-theme="chapel"] .title-block,
+html[data-theme="chapel"] .subtitle,
+html[data-theme="chapel"] h2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html[data-theme="chapel"] ul,
+html[data-theme="chapel"] ol {
+  text-align: left;
+}
+
+html[data-theme="chapel"] .two-col > div,
+html[data-theme="chapel"] .split-list > div,
+html[data-theme="chapel"] .view-grid > div,
+html[data-theme="chapel"] .source-rows p,
+html[data-theme="chapel"] .definition,
+html[data-theme="chapel"] .scripture-block,
+html[data-theme="chapel"] .quote-stack blockquote {
+  backdrop-filter: blur(8px);
+}
+
+html[data-theme="chapel"] .takeaway,
+html[data-theme="chapel"] .big-line,
+html[data-theme="chapel"] blockquote {
+  border-left: 0;
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1040px;
+  padding: 0.9rem 0;
+}
+
+html[data-theme="seminar"] {
+  --ink: #14202b;
+  --muted: #4d5c68;
+  --line: #b9c5ce;
+  --paper: #f8fbfd;
+  --soft: #eaf2f6;
+  --card: #fff;
+  --solid-card: #fff;
+  --blue: #11639a;
+  --green: #167a65;
+  --gold: #c57c1e;
+  --red: #a94e44;
+  --serif: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --radius: 6px;
+  --shadow: none;
+  --title-weight: 800;
+  --overlay-light: linear-gradient(90deg, rgba(248, 251, 253, 0.96) 0%, rgba(248, 251, 253, 0.78) 46%, rgba(248, 251, 253, 0.1) 82%);
+}
+
+html[data-theme="seminar"] .reveal section {
+  padding: 2.5rem 3.3rem;
+}
+
+html[data-theme="seminar"] h1,
+html[data-theme="seminar"] h2,
+html[data-theme="seminar"] h3 {
+  text-transform: none;
+}
+
+html[data-theme="seminar"] .view-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+html[data-theme="seminar"] .view-grid > div:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+html[data-theme="seminar"] .two-col > div,
+html[data-theme="seminar"] .split-list > div,
+html[data-theme="seminar"] .view-grid > div,
+html[data-theme="seminar"] .source-rows p,
+html[data-theme="seminar"] .definition,
+html[data-theme="seminar"] .scripture-block {
+  border-left: 6px solid var(--blue);
+}
+
+html[data-theme="seminar"] .timeline {
+  align-items: stretch;
+}
+
+html[data-theme="seminar"] .timeline div {
+  border: 1px solid var(--line);
+  border-top: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+html[data-theme="seminar"] .timeline strong {
+  background: var(--blue);
+  color: #fff;
+  margin: -1rem -1rem 0.8rem;
+  padding: 0.6rem 0.8rem;
+}
+
+html[data-theme="manuscript"] {
+  --ink: #241f19;
+  --muted: #6f6252;
+  --line: #d7c6aa;
+  --paper: #f8f0df;
+  --soft: #efe1c4;
+  --card: rgba(255, 248, 231, 0.76);
+  --solid-card: #fff8e7;
+  --blue: #385d73;
+  --green: #5c6d49;
+  --gold: #a66e2d;
+  --red: #86524a;
+  --radius: 0;
+  --shadow: none;
+  --overlay-light: linear-gradient(90deg, rgba(248, 240, 223, 0.94) 0%, rgba(248, 240, 223, 0.75) 48%, rgba(248, 240, 223, 0.08) 82%);
+  --overlay-dark: linear-gradient(90deg, rgba(35, 29, 23, 0.88) 0%, rgba(35, 29, 23, 0.68) 48%, rgba(35, 29, 23, 0.08) 82%);
+}
+
+html[data-theme="manuscript"] .reveal section {
+  padding-left: 5.2rem;
+}
+
+html[data-theme="manuscript"] h1,
+html[data-theme="manuscript"] h2 {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.45rem;
+}
+
+html[data-theme="manuscript"] .eyebrow,
+html[data-theme="manuscript"] .section-kicker {
+  color: var(--red);
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+}
+
+html[data-theme="manuscript"] .two-col,
+html[data-theme="manuscript"] .split-list {
+  column-gap: 2.2rem;
+}
+
+html[data-theme="manuscript"] .view-grid,
+html[data-theme="manuscript"] .timeline {
+  grid-template-columns: 1fr;
+}
+
+html[data-theme="manuscript"] .timeline div {
+  border-left: 5px solid var(--gold);
+  border-top: 0;
+}
+
+html[data-theme="manuscript"] .source-rows {
+  border-left: 1px solid var(--line);
+  padding-left: 1.1rem;
 }
 
 @media (max-width: 900px) {
@@ -389,5 +676,15 @@ blockquote {
   .scripture-block p {
     font-size: 1.05rem;
   }
-}
 
+  .theme-switcher {
+    bottom: 0.6rem;
+    left: 0.6rem;
+    max-width: calc(100vw - 1.2rem);
+    overflow-x: auto;
+  }
+
+  .theme-switcher button {
+    flex: 0 0 auto;
+  }
+}
